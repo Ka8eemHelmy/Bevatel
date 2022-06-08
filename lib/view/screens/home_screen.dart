@@ -28,6 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollController.position.maxScrollExtent) {
         // HotelCubit.get(context).getHotel();
         HotelCubit.get(context).fetch();
+        if(!HotelCubit.get(context).hasMore){
+          scrollController.dispose();
+        }
       }
     });
   }
